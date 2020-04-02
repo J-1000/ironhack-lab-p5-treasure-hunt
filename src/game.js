@@ -24,7 +24,6 @@ class Player {
   moveDown() {
     this.row += SQUARE_SIDE;
     console.log("moveDown");
-    console.log(this.col, this.row);
   }
   moveLeft() {
     this.col -= SQUARE_SIDE;
@@ -39,6 +38,7 @@ class Player {
 }
 
 function keyPressed() {
+  
   if (keyCode === 40) {
     player.moveDown();
     console.log("arrow Down");
@@ -55,4 +55,21 @@ function keyPressed() {
     player.moveRight();
     console.log("arrow right");
   }
+  clear();
+}
+
+class Treasure {
+  constructor (col, row){
+    this.col = col;
+    this.row = row;
+  }
+  setRandomPosition(col, row) {
+    this.col = Math.floor(Math.random()* WIDTH.length);
+    this.row = Math.floor(Math.random()* HEIGHT.length);
+  }
+
+
+
+
+  drawTreasure()
 }
