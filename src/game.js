@@ -1,29 +1,36 @@
 class Player {
-  constructor(col, row) {
+  constructor(col, row, playerX) {
     this.col = col;
     this.row = row;
-    this.image = this.imageDown;
+    this.image;
     this.imageUp;
     this.imageDown;
     this.imageRight;
     this.imageLeft;
     this.scores = 0;
+    this.direction = "d";
+    this.playerX = playerX;
   }
 
   moveUp() {
     this.col--;
+    this.image = this.imageUp;
   }
   moveDown() {
     this.col++;
+    this.image = this.imageDown;
   }
   moveLeft() {
     this.row--;
+    this.image = this.imageLeft;
   }
   moveRight() {
     this.row++;
+    this.image = this.imageRight;
   }
 
   preload() {
+    this.image = loadImage('assets/character-down.png');
     this.imageUp = loadImage('assets/character-up.png');
     this.imageDown = loadImage('assets/character-down.png');
     this.imageRight = loadImage('assets/character-right.png');
@@ -33,7 +40,7 @@ class Player {
   draw() {
     this.col = constrain(this.col, 0, width/SQUARE_SIZE-1);
     this.row = constrain(this.row, 0, height/SQUARE_SIZE-1);
-    image(this.imageDown, this.row*SQUARE_SIZE, this.col*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+    image(this.image, this.row*SQUARE_SIZE, this.col*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
   }
 
 
@@ -89,6 +96,28 @@ class Game {
       // vertical lines
       line(step, 0 , step, WIDTH);
       step += 100;
+    }
+  }
+}
+
+
+class ExtraPlayer extends Player{
+  constructor(col, row, playerX) {
+    super(col, row, playerX);
+  }
+  keyPressed() {
+    console.log(keyCode);
+    if (keyCode === 87) {
+      this.moveUp();
+    }
+    if (keyCode === 83) {
+      this.moveDown();
+    }
+    if (keyCode === 65) {
+      this.moveLeft();
+    }
+    if (keyCode === 68) {
+      this.moveRight();
     }
   }
 }
