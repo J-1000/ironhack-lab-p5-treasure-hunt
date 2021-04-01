@@ -4,6 +4,7 @@ class Player {
     this.row = row;
     this.direction = 0;
     this.image = [];
+    this.score = 0;
   }
   preload() {
     this.image[0] = loadImage('./assets/character-down.png');
@@ -35,5 +36,15 @@ class Player {
   moveRight() {
     this.direction = 3;
     this.col++;
+  }
+  increaseScore() {
+    return this.score++;
+  }
+  resetScore() {
+    this.score = 0;
+    return this.score;
+  }
+  getScore() {
+    return this.score;
   }
 }
