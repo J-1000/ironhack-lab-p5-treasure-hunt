@@ -7,4 +7,9 @@ function setup() {
 
 function draw() {
   game.drawGrid();
+  game.player.draw();
+}
+
+function preload() {
+  game.preload();
 }
