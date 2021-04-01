@@ -10,8 +10,9 @@ function setup() {
 function draw() {
   clear();
   game.drawGrid();
-  game.player.draw();
   game.treasure.draw();
+  game.player.draw();
+
 }
 
 function preload() {
