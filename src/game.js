@@ -3,19 +3,15 @@ class Game {
     // Iteration 1
     // Draw the grid
     // https://p5js.org/reference/#/p5/line
-    push()
     for (let i=0; i<11; i++){
-      let rect=40;
-      const xstart= width/2-(rect*5);
-      const xend = width/2+(rect*5);
-      line(xstart, i*rect, xend, i*rect)
-      line(xstart+i*rect, 0, xstart+i*rect, rect*10)
+      
+      line(XSTART, i*SQUARE_SIDE, XEND, i*SQUARE_SIDE)
+      line(XSTART+i*SQUARE_SIDE, 0, XSTART+i*SQUARE_SIDE, SQUARE_SIDE*10)
     }
   }
 }
 
-//Iteration 2
-//Creating the player
+//Iteration 2 -Creating the player
 class Player{
   constructor(col, row){
     this.col = col;
@@ -38,9 +34,43 @@ class Player{
     this.col++;
   }
 
+  //Iteration 3 - Drawing the p
+  draw(playerImage){
+    let SQUARE_SIDE=40;
+
+    image(playerImage, XSTART +(this.col*100), 0 + (this.row*100), 100, 100); //when I write SQUARE_SIDE here, it is not 100, but smaller?
+  }
+
+  keyPressed(){
+    if(keyIsDown(37)){
+      this.moveLeft();
+      console.log('left key is pressed')
+      this.draw(playerImage)
+      clear ();
+    }
+  
+    if(keyIsDown(38)){
+      this.moveUp();
+      console.log('right key is pressed')
+      this.draw(playerImage)
+      clear ();
+    }
+  
+    if(keyIsDown(39)){
+      this.moveRight();
+      console.log('down key is pressed')
+      this.draw(playerImage)
+      clear ();
+    }
+  
+    if(keyIsDown(40)){
+      this.moveDown();
+      console.log('down key is pressed')
+      this.draw(playerImage)
+      clear ();
+    }
+  }
+
 }
-const player = new Player(0,0) // (0,0) = Initial position (col, row)
-player.moveDown() // Increase by 1 the value of player.row
-player.moveDown() // Increase by 1 the value of player.row
-player.moveRight() // Increase by 1 the value of player.col
-console.log(player.col, player.row) // => 1,2
+
+

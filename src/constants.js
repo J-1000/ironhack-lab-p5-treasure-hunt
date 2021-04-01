@@ -1,3 +1,6 @@
 const WIDTH = 1000;
 const HEIGHT = WIDTH;
 const SQUARE_SIDE = WIDTH / 10;
+const XSTART =  WIDTH/2-(SQUARE_SIDE*5);
+const XEND = WIDTH/2+(SQUARE_SIDE*5);
+
