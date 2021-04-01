@@ -8,3 +8,7 @@ body {
 h1 {
   font-weight: 100;
 }
+
+canvas {
+  border: 1px solid black;
+}
