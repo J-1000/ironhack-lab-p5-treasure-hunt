@@ -1,4 +1,6 @@
 const game = new Game();
+game.treasure.setRandomPosition();
+
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
@@ -9,23 +11,26 @@ function draw() {
   clear();
   game.drawGrid();
   game.player.draw();
+  game.treasure.draw();
 }
 
 function preload() {
   game.preload();
 }
 
-keyPressed() {
-  console.log(keyCode);
-
-  switch (key) {
-    case 37:
-      this.moveLeft();
-    case 38:
-      this.moveUp();
-    case 39:
-      this.moveRigth();
-    case 40:
-      this.moveDown();
+function keyPressed() {
+  switch (keyCode) {
+    case LEFT_ARROW:
+      game.player.moveLeft();
+      break;
+    case UP_ARROW:
+      game.player.moveUp();
+      break;
+    case RIGHT_ARROW:
+      game.player.moveRight();
+      break;
+    case DOWN_ARROW:
+      game.player.moveDown();
+      break;
   }
 }
