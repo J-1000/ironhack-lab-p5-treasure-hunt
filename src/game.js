@@ -95,8 +95,8 @@ class Treasure {
     this.image;
   }
   draw() {
-    this.x = constrain(this.x, 0, (width - 100));
-    this.y = constrain(this.y, 0, (height - 100));
+    this.col = constrain(this.col, 0, (width - 100));
+    this.row = constrain(this.row, 0, (height - 100));
     image(this.image, this.col, this.row, this.width, this.height);
 
     if (this.col === game.player.col && this.row === game.player.row) {
