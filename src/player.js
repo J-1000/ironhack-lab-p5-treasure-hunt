@@ -6,7 +6,7 @@ class Player {
     }
 
     preload() {
-        const playerImage = loadImage('../assets/character-down.png');
+        this.playerImage = loadImage('../assets/character-down.png');
 
     }
 
@@ -23,7 +23,10 @@ class Player {
 
     }
     moveDown() {
-        this.y += 1;
+        if (this.y < 10) {
+            this.y += 1;
+        }
+
     }
     moveLeft() {
         this.x -= 1;
@@ -38,3 +41,5 @@ class Player {
 
     }
 }
+
+

@@ -1,6 +1,6 @@
 const game = new Game();
-const player = new Player(4, 4);
-const treasure = new Treasure(1, 1);
+const player = new Player(1, 1);
+const treasure = new Treasure();
 
 function preload() {
 
@@ -13,14 +13,17 @@ function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
   player.setup();
-  treasure.setup();
+  treasure.setRandomPosition();
+
 }
 
 function draw() {
   clear();
+  stroke(0);
   game.drawGrid();
   player.draw();
   treasure.draw();
+  treasure.catchTreasure();
 
 }
 
