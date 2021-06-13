@@ -13,8 +13,7 @@ class Game {
   drawGrid() {
     clear();
     stroke(0);
-    for(let i= 0; i<=1000; i+=100)
-    {
+    for(let i= 0; i<=1000; i+=100){
       line(0, i, WIDTH, i); //horizontal lines - y changes
       line(i, 0, i, HEIGHT); //vertical lines - x changes    
     }
@@ -29,7 +28,6 @@ class Game {
       game.treasure.setRandomPosition();
       this.score += 1;
     }
-    document.querySelector('h2').querySelector('span').innerText = this.score;  
   }
 }
 
