@@ -8,3 +8,9 @@ body {
 h1 {
   font-weight: 100;
 }
+
+.score {
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
