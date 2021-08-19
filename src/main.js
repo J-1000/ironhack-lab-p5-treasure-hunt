@@ -11,8 +11,7 @@ function preload() {
 
 function draw() {
   game.drawGrid();
-  game.drawPlayer();
-  game.drawTreasure();
+  game.draw();
 }
 
 function keyPressed() {
@@ -36,8 +35,13 @@ function keyPressed() {
 	if (game.player.row === game.treasure.row && game.player.col === game.treasure.col) {
 		game.treasure.setRandomPosition();
 		game.score += 100
+		document.querySelector('h2').innerText = `Score : ${game.score}`
 	}
-
+	
+	if (game.score === 1000) {
+		document.querySelector('#canvas').innerHTML = '';
+		document.querySelector('h1').innerText = 'You Won!'
+	}
 }
 
 

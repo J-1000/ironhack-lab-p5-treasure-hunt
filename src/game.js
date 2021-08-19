@@ -24,14 +24,12 @@ class Game {
     }
   }
 
-  drawPlayer() {
+  draw() {
 		// the player can draw itself
 		this.player.drawPlayer();
-  }
-  
-  drawTreasure() {
     this.treasure.drawTreasure();
   }
+  
 }
 
 class Player {
@@ -42,29 +40,45 @@ class Player {
     this.height = 100;
     this.image;
   }
-
+//create the boundery
   moveUp () {
-    clear()
-    this.col -= 100;
-    this.image = loadImage('assets/character-up.png');
+    if (this.col === 0) {
+      this.col === 0;
+    } else {
+      clear()
+      this.col -= 100;
+      this.image = loadImage('assets/character-up.png');
+    }
   }
 
   moveDown (){
-    clear()
-    this.col += 100;
-    this.image = loadImage('assets/character-down.png');
+    if (this.col === 900){
+      this.col === 900;
+    } else {
+      clear()
+      this.col += 100;
+      this.image = loadImage('assets/character-down.png');
+    }
   }
 
   moveLeft () {
-    clear()
-    this.row -= 100;
-    this.image = loadImage('assets/character-left.png');
+    if (this.row === 0) {
+      this.row === 0;
+    } else {
+      clear()
+      this.row -= 100;
+      this.image = loadImage('assets/character-left.png');
+    }
   }
 
   moveRight () {
-    clear()
-    this.row += 100;
-    this.image = loadImage('assets/character-right.png');
+    if (this.row === 900) {
+      this.row === 900;
+    } else {
+      clear()
+      this.row += 100;
+      this.image = loadImage('assets/character-right.png');
+    }
   }
 
   drawPlayer () {
