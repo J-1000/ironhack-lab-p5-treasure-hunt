@@ -5,6 +5,7 @@ class Player {
         this.col = col
         this.row = row
         this.image = game.playerImage[0]
+        this.score = 0;
     }
 
     moveUp() {
@@ -54,6 +55,8 @@ class Player {
     draw() {
 
         image(this.image, this.row, this.col, 100, 100)
+
+
 
 
     }

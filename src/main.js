@@ -1,6 +1,9 @@
 const game = new Game();
 
 
+// console.log(score + 'hello')
+
+
 function preload() {
 
   game.preLoad();
@@ -20,6 +23,9 @@ function draw() {
   game.player.draw();
 
 }
+
+
+// document.querySelector(".score").innerText = game.player.score
 
 function keyPressed() {
 
