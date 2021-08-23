@@ -39,7 +39,7 @@ class Game {
       }
     }
 
-    this.player.draw()
+    ; this.player.draw()
     this.backGround.draw()
     this.treasure.draw()
 
