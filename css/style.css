@@ -3,8 +3,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #1a1919;
 }
 
 h1 {
   font-weight: 100;
+  color: red;
+}
+
+canvas {
+  background-color: #ffaa00;
+}
+h2 {
+  color: red;
 }
