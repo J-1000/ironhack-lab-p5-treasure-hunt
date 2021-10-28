@@ -1,9 +1,11 @@
-const player1 = document.querySelector('h2')
+const player1 = document.querySelector('#player1')
 player1.innerText = 'Player 1: '
+const playerTwo = document.querySelector('#player2')
+playerTwo.innerText = 'Player 2: '
 // console.log(player1)
 class Game {
   constructor() {
-    this.player = new Player()
+    //this.player = new Player()
     this.treasure = new Treasure()
     
   }
@@ -17,11 +19,11 @@ class Game {
       line(i, 0, i, 1000)
     }    
   }
+  
   // preload() {
   //   this.player.imageDown = loadImage('/assets/character-down.png')
   // }
 }
-
 class Player {
   constructor() {
     this.col = 0;
@@ -64,12 +66,28 @@ class Player {
      image(this.image, this.col, this.row, 100, 100)
      
   }
+}
+
+class Player1 extends Player{
+
   check() {
     if(this.col === game.treasure.col && this.row === game.treasure.row){
       game.treasure.setRandomPosition()
       this.counter++
       console.log(this.counter)
       player1.innerText = 'Player 1: ' + this.counter + ' treasures!'
+    }
+  }
+}
+
+class Playera extends Player{
+  
+  check() {
+    if(this.col === game.treasure.col && this.row === game.treasure.row){
+      game.treasure.setRandomPosition()
+      this.counter++
+      console.log(this.counter)
+      playerTwo.innerText = 'Player 2: ' + this.counter + ' treasures!'
     }
   }
 }
@@ -109,8 +127,24 @@ function keyPressed() {
   if(keyCode===40){
       player.moveDown()
   }
+  if(keyCode===68){
+    player2.moveRight()
+   console.log('move right')
+}
+if(keyCode===65){
+    player2.moveLeft()
+    console.log('move left')
+}
+if(keyCode===87){
+    player2.moveUp()
+}
+if(keyCode===83){
+    player2.moveDown()
+}
+  
   
 }
+
 // player.draw()
 // player.moveDown() // Increase by 1 the value of player.row
 // player.moveDown() // Increase by 1 the value of player.row

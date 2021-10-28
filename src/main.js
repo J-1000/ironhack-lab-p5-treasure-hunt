@@ -1,5 +1,6 @@
 const game = new Game();
-const player = new Player()
+const player = new Player1()
+const player2 = new Playera()
 //const treasure = new Treasure()
 //const treasure = new Treasure()
 function setup() {
@@ -11,12 +12,14 @@ function setup() {
 function draw() {
   game.drawGrid();
   player.draw();
+  player2.draw();
   game.treasure.draw()
   
 }
 function preload() {
 
   player.preload()
+  player2.preload()
   game.treasure.preload()
   
   // this.player.imageDown = loadImage('/assets/character-down.png')
