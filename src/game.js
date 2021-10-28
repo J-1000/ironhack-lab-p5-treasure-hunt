@@ -31,24 +31,28 @@ class Player {
   moveUp() {
     if(this.row>0){
       this.row-=100
+      this.check()
     }
     clear()
   }
   moveDown() {
     if(this.row<900){
       this.row+=100
+      this.check()
     }
     clear()
   }
   moveLeft() {
     if(this.col>0){
       this.col-=100
+      this.check()
     }
     clear()
   }
   moveRight() {
     if(this.col<900){
       this.col+=100
+      this.check()
     }
     clear()
   }
@@ -56,24 +60,30 @@ class Player {
      image(this.image, this.col, this.row, 100, 100)
      
   }
+  check() {
+    if(this.col === game.treasure.col && this.row === game.treasure.row){
+      game.treasure.setRandomPosition()
+    }
+  }
 }
 class Treasure {
-  constructor(){
-    this.image
+  // constructor(){
+  //   //this.image
     
-  }
+  // }
   setRandomPosition(){
-    this.col = Math.floor(Math.random() * 9);
-    this.row = Math.floor(Math.random() * 9);
-    console.log(this.col)
-    console.log(this.row)
+    this.col = Math.floor(Math.random() * 9)*100;
+    this.row = Math.floor(Math.random() * 9)*100;
+    
+    // this.draw()
   }
     preload(){
      this.image = loadImage('/assets/treasure.png')
     }
     draw() {
+      // console.log(this.col)
+      // console.log(this.row)
       image(this.image, this.col, this.row, 100, 100)
-      
    }
     
   
@@ -92,6 +102,7 @@ function keyPressed() {
   if(keyCode===40){
       player.moveDown()
   }
+  
 }
 // player.draw()
 // player.moveDown() // Increase by 1 the value of player.row
