@@ -1,5 +1,6 @@
 const game = new Game();
 const player = new Player ();
+const treasure = new Treasure ();
 
 
 function setup() {
@@ -8,12 +9,14 @@ function setup() {
 }
 
 function draw() {
-  game.drawGrid();
   player.draw();
+  game.drawGrid();
+  treasure.drawTreasure();
 }
 
 function preload(){
-  player.preload()
+  player.preload();
+  treasure.preload();
 }
 
 function keyPressed() {
@@ -34,3 +37,5 @@ function keyPressed() {
 		player.moveDown();
 	}
 }
+
+
