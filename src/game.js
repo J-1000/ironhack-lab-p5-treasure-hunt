@@ -1,3 +1,6 @@
+const player1 = document.querySelector('h2')
+player1.innerText = 'Player 1: '
+// console.log(player1)
 class Game {
   constructor() {
     this.player = new Player()
@@ -24,6 +27,7 @@ class Player {
     this.col = 0;
     this.row = 0;
     this.image
+    this.counter = 0;
   }
   preload() {
     this.image = loadImage('/assets/character-down.png')
@@ -63,6 +67,9 @@ class Player {
   check() {
     if(this.col === game.treasure.col && this.row === game.treasure.row){
       game.treasure.setRandomPosition()
+      this.counter++
+      console.log(this.counter)
+      player1.innerText = 'Player 1: ' + this.counter + ' treasures!'
     }
   }
 }
