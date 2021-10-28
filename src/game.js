@@ -1,6 +1,7 @@
 class Game {
-    constructor(player, treasure) {
-        this.player = player;
+    constructor(player1, player2, treasure) {
+        this.player1 = player1;
+        this.player2 = player2;
         this.treasure = treasure;
     }
 
@@ -19,23 +20,39 @@ class Game {
     }
 
     check() {
-        if (this.player.col === this.treasure.col &&
-            this.player.row === this.treasure.row) {
+        if (this.player1.col === this.treasure.col &&
+            this.player1.row === this.treasure.row) {
 
             const rndX = Math.floor(Math.random() * (WIDTH / SQUARE_SIDE)) * SQUARE_SIDE;
             const rndY = Math.floor(Math.random() * (HEIGHT / SQUARE_SIDE)) * SQUARE_SIDE;
             treasure.setRandomPosition(rndX, rndY)
+            this.player1.increaseScore();
         }
 
+        if (this.player2.col === this.treasure.col &&
+            this.player2.row === this.treasure.row) {
+
+            const rndX = Math.floor(Math.random() * (WIDTH / SQUARE_SIDE)) * SQUARE_SIDE;
+            const rndY = Math.floor(Math.random() * (HEIGHT / SQUARE_SIDE)) * SQUARE_SIDE;
+            treasure.setRandomPosition(rndX, rndY);
+            this.player2.increaseScore();
+        }
+
+    }
+
+    displayScore() {
+    document.getElementById('player1').innerText = `Player1: ${this.player1.score}`
+    document.getElementById('player2').innerText = `Player2: ${this.player2.score}`
     }
 
 }
 
 
 class Player {
-    constructor(col, row) {
+    constructor(col, row, score) {
         this.col = col;
         this.row = row;
+        this.score = score;
         this.playerImage = loadImage('assets/character-down.png');
     }
 
@@ -67,6 +84,10 @@ class Player {
 
     draw() {
         image(this.playerImage, this.col, this.row, 100, 100)
+    }
+
+    increaseScore() {
+        this.score++;
     }
 
 }
