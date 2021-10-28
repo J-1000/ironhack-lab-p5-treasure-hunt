@@ -1,8 +1,8 @@
 class Game {
-  constructor(player, treasure) {
-    this.player = player;
+  constructor(player1, player2, treasure) {
+    this.player1 = player1;
+    this.player2 = player2;
     this.treasure = treasure;
-    this.score = 0;
   }
   drawGrid() {
     // Iteration 1
@@ -15,17 +15,29 @@ class Game {
     }
   }
 
-  drawAssets(){
+  drawAssets() {
     this.treasure.draw();
-    this.player.draw();
+    this.player1.draw();
+    this.player2.draw();
   }
 
   checkCollisions() {
-    if(this.treasure.col === this.player.col && this.treasure.row === this.player.row){
+    if (
+      this.treasure.col === this.player2.col &&
+      this.treasure.row === this.player2.row
+    ) {
       this.treasure.setRandomPosition();
-      document.querySelector('h1').innerText = `Score: ${++this.score * 100}`;
+      document.querySelector("h1").innerText = `LEFT ${++this.player2.score * 100} : ${this.player1.score * 100} RIGHT`;
     }
-    
+
+    if (
+      this.treasure.col === this.player1.col &&
+      this.treasure.row === this.player1.row
+    ) {
+      this.treasure.setRandomPosition();
+      document.querySelector("h1").innerText = `LEFT ${this.player2.score * 100} : ${++this.player1.score * 100} RIGHT`;
+
+    }
   }
 }
 
@@ -34,6 +46,7 @@ class Player {
     this.col = col;
     this.row = row;
     this.image = loadImage("../assets/character-down.png");
+    this.score = 0;
   }
 
   moveUp() {
