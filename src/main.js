@@ -1,4 +1,6 @@
 const game = new Game();
+const player = new Player ();
+
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
@@ -7,4 +9,28 @@ function setup() {
 
 function draw() {
   game.drawGrid();
+  player.draw();
+}
+
+function preload(){
+  player.preload()
+}
+
+function keyPressed() {
+	if (keyCode === 39) {
+		// move the player to the right
+		player.moveRight();
+	}
+	if (keyCode === 37) {
+		// move the player to the left
+		player.moveLeft();
+	}
+	if (keyCode === 38) {
+		// move the player up
+		player.moveUp();
+	}
+	if (keyCode === 40) {
+		// move the player down
+		player.moveDown();
+	}
 }
