@@ -53,33 +53,33 @@ class Player {
         this.col = col;
         this.row = row;
         this.score = score;
-        this.playerImage = loadImage('assets/character-down.png');
+        this.playerImage = playerRight;
     }
 
     moveUp() {
         if (this.row > 0)
             this.row -= SQUARE_SIDE;
-        this.playerImage = loadImage('assets/character-up.png');
+        this.playerImage = playerUp;
 
     }
 
     moveDown() {
         if (this.row < HEIGHT - SQUARE_SIDE)
             this.row += SQUARE_SIDE;
-        this.playerImage = loadImage('assets/character-down.png');
+        this.playerImage = playerDown;
     }
 
     moveLeft() {
         if (this.col > 0)
             this.col -= SQUARE_SIDE;
-        this.playerImage = loadImage('assets/character-left.png');
+        this.playerImage = playerLeft;
 
     }
 
     moveRight() {
         if (this.col < WIDTH - SQUARE_SIDE)
             this.col += SQUARE_SIDE;
-        this.playerImage = loadImage('assets/character-right.png');
+        this.playerImage = playerRight;
     }
 
     draw() {
