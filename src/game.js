@@ -8,9 +8,13 @@ class Game {
   }
 
   preload() {
-  this.playerImage = loadImage('../assets/character-down.png')
+  this.playerImage = loadImage('../assets/character-down.png');
+  this.playerImageDown = loadImage("../assets/character-down.png");
+  this.playerImageUp = loadImage("../assets/character-up.png");
+  this.playerImageLeft = loadImage("../assets/character-left.png");
+  this.playerImageRight = loadImage("../assets/character-right.png");
   }
-  
+ 
   drawGrid() {
     for (let i = 0; i <= 10; i++) {
       let x = i * SQUARE_SIDE;
@@ -23,7 +27,6 @@ class Game {
   drawPlayer() {
   this.player.drawPlayer();
   }
-
 }
 
 class Player {
@@ -33,8 +36,26 @@ this.row = row;
 }
 
 drawPlayer() {
-  image(game.playerImage, this.row*50, this.col*100, 100, 100);
-  console.log('hello')
+image(game.playerImage, this.row*100, this.col*100, 100, 100) 
 }
 
+moveUp() {
+  this.col -=1
+  game.playerImage = game.playerImageUp;
+}
+
+moveDown() {
+  this.col += 1
+  game.playerImage = game.playerImageDown;
+}
+
+moveLeft() {
+  this.row -= 1
+  game.playerImage = game.playerImageDown; 
+}
+
+moveRight() {
+  this.row += 1
+  game.playerImage = game.playerImageDown;
+}
 }
