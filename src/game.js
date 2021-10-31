@@ -5,6 +5,8 @@
 class Game {
   constructor(player) {
     this.player = new Player(0, 0); 
+    this.treasure = new Treasure; 
+    this.score = 0;
   }
 
   preload() {
@@ -13,6 +15,7 @@ class Game {
   this.playerImageUp = loadImage("../assets/character-up.png");
   this.playerImageLeft = loadImage("../assets/character-left.png");
   this.playerImageRight = loadImage("../assets/character-right.png");
+  this.treasureImage = loadImage("../assets/treasure.png")
   }
  
   drawGrid() {
@@ -27,6 +30,17 @@ class Game {
   drawPlayer() {
   this.player.drawPlayer();
   }
+
+  drawTreasure() {
+    this.treasure.drawTreasure();
+  }
+
+  drawCollision() {
+    if(this.treasure.col === this.player.col && this.treasure.row === this.player.row){
+      this.treasure.setRandomPosition();
+      document.querySelector('h2').innerText = `Score: ${++this.score * 10}`;
+  }
+}
 }
 
 class Player {
@@ -40,22 +54,42 @@ image(game.playerImage, this.row*100, this.col*100, 100, 100)
 }
 
 moveUp() {
-  this.col -=1
   game.playerImage = game.playerImageUp;
+  this.col <= 0 ? this.col = 0 : this.col--;
 }
 
 moveDown() {
-  this.col += 1
   game.playerImage = game.playerImageDown;
+  this.col >= 9 ? this.col = 9 : this.col++;
 }
 
 moveLeft() {
-  this.row -= 1
-  game.playerImage = game.playerImageDown; 
+  game.playerImage = game.playerImageLeft; 
+  this.row <= 0 ? this.row = 0 : this.row--;
 }
 
+
 moveRight() {
-  this.row += 1
-  game.playerImage = game.playerImageDown;
+  game.playerImage = game.playerImageRight;
+  this.row >= 9 ? this.row = 9 : this.row++;
 }
+}
+
+class Treasure {
+
+  constructor(col, row) {
+    this.col = col;
+    this.row = row;
+    this.setRandomPosition();
+    }
+
+    setRandomPosition() {
+      this.col = Math.floor(Math.random()*10);
+      this.row = Math.floor(Math.random()*10);
+    }
+    
+    drawTreasure() {
+    image(game.treasureImage, this.row*100, this.col*100, 100, 100) 
+    }
+
 }

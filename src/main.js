@@ -16,7 +16,8 @@ function draw() {
   clear()
   game.drawGrid();
   game.drawPlayer();
-
+  game.drawTreasure();
+  game.drawCollision();
 }
 
 function keyPressed() {
@@ -33,6 +34,7 @@ function keyPressed() {
     game.player.moveDown();
   }
 }
+
 
 
 
