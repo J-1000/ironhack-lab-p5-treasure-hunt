@@ -1,3 +1,7 @@
-const WIDTH = 1000;
+const WIDTH = 800;
 const HEIGHT = WIDTH;
-const SQUARE_SIDE = WIDTH / 10;
+//10 cells
+const NUM_COLS = 10
+const NUM_ROWS = 10
+    //px of a cell
+const SQUARE_SIZE = WIDTH / NUM_COLS;
