@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Let's implement a simple treasure hunt game, where you would need to move a player around in search for a *not-so-hidden* treasure.  
+Let's implement a simple treasure hunt game, where you would need to move a player around in search for a _not-so-hidden_ treasure.
 
 ## Iteration 1
 
@@ -55,11 +55,9 @@ Make sure you `clear()` before drawing your player again 😉
 
 ## Iteration 5
 
-Create a class `Treasure` with a method `setRandomPosition()` and a property `col` and `row`.  
+Create a class `Treasure` with a method `setRandomPosition()` and a property `col` and `row`.
 
 Create a function `drawTreasure()` that displays the treasure on the canvas. The picture is `images/treasure.png`
-
-
 
 ## Iteration 6 (BONUS)
 
