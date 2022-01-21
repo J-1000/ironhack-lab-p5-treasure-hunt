@@ -2,7 +2,7 @@
 
 # JS | P5 Treasure Hunt
 
-## Introduction
+## Introduction !!!
 
 Let's implement a simple treasure hunt game, where you would need to move a player around in search for a *not-so-hidden* treasure.  
 
