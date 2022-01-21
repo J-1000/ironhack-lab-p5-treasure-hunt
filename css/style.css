@@ -5,6 +5,7 @@ body {
   align-items: center;
 }
 
-h1 {
+h1, h2 {
+  font-size: 40px;
   font-weight: 100;
 }
