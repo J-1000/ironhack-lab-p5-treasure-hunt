@@ -1,5 +1,10 @@
 class Game {
 
+  constructor(treasure){
+
+    this.score = treasure.score
+  }
+
   drawGrid() {
 
     let currentLineSpacing = 0
@@ -15,10 +20,10 @@ class Game {
 
 class Player{
 
-  constructor(col, row){
+  constructor(){
 
-    this.col = col
-    this.row = row 
+    this.col = 100
+    this.row = 100
     this.currentPlayerImage
     this.playerLeft
     this.playerRight
@@ -56,13 +61,45 @@ class Player{
   }
 
   draw(){
+    //console.log('running')
 
     image(this.currentPlayerImage, this.col, this.row, 100, 100)
   }
 }
 
-class Treasure(){
-  
+class Treasure{
+
+  constructor(player){
+
+    this.col 
+    this.row
+    this.treasureImg
+    this.player = player
+    this.score = 0
+  }
+
+  setRandomPosition(){
+
+    this.col = Math.round(Math.random() * 9) * 100
+    this.row = Math.round(Math.random() * 9) * 100
+  }
+
+  preload(){
+    this.setRandomPosition()
+
+    this.treasureImg = loadImage('assets/treasure.png')
+  }
+
+  drawTreasure(){
+
+    if(this.player.col === this.col && this.player.row === this.row){
+      this.score++
+      this.setRandomPosition()
+    }
+      
+      
+    image(this.treasureImg, this.col, this.row, 100, 100)
+  }
 }
   
  

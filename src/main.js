@@ -1,5 +1,10 @@
-const game = new Game();
-let player = new Player(100,100)
+let player = new Player()
+let treasure = new Treasure(player)
+const game = new Game(treasure);
+
+
+let scoreElement = document.querySelector('#score')
+
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
@@ -7,13 +12,17 @@ function setup() {
 }
 
 function draw() {
+
   game.drawGrid();
   player.draw()
+  treasure.drawTreasure()
+  scoreElement.innerHTML = treasure.score
 }
 
 function preload(){
 
   player.preload()
+  treasure.preload()
 }
 
 function keyPressed(){
