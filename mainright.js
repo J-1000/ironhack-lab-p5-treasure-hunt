@@ -1,16 +1,15 @@
 const game = new Game();
-const player = new Player()
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
-
+  
 }
 
 function preload(){
   game.preload();
-  player.preload();
 }
+
 
 
 function draw() {

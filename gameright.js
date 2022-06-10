@@ -3,10 +3,19 @@ class Game {
     this.player = new Player();
     this.treasure = new Treasure();
   //  this.player.playerImages =[]
-  //  console.log(this.player)
+  console.log(this.player)
   }
 
-  
+  preload() {
+
+    this.player.playerImages = [
+      loadImage('../assets/character-up.png'),
+      loadImage('../assets/character-down.png'),
+      loadImage('../assets/character-left.png'),
+      loadImage('../assets/character-right.png')
+    ]
+    this.treasure.treasureImage = loadImage('../assets/treasure.png')
+  }
 
 
   drawGrid() {
@@ -42,18 +51,9 @@ class Player {
     this.y = 500
     this.width = 100
     this.height = 100
-    this.image = this.playerImages[1]
-  }
-
-  preload() {
-
-    this.playerImages = [
-      loadImage('../assets/character-up.png'),
-      loadImage('../assets/character-down.png'),
-      loadImage('../assets/character-left.png'),
-      loadImage('../assets/character-right.png')
-    ]
-    
+    this.playerImages
+    console.log(this.playerImages)
+    //this.image= this.playerImages[0]
   }
 
   draw() {
