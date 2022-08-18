@@ -34,6 +34,23 @@ function keyPressed() {
     clear()
   game.player.moveDown()
   }
+
+  if (keyCode === 68) {
+    clear()  
+  game.player2.moveRight()
+  }
+  if (keyCode === 65) {
+    clear()
+  game.player2.moveLeft()
+  }
+  if (keyCode === 87) {
+    clear()
+  game.player2.moveUp()
+  }
+  if (keyCode === 83) {
+    clear()
+  game.player2.moveDown()
+  }
 }
 
 

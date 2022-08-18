@@ -1,9 +1,12 @@
 class Game {
   constructor() {
 		this.player = new Player()
+    this.player2 = new Player ()
+    this.player2.col = 9*SQUARE_SIDE
     this.treasure = new Treasure()
     this.treasure.setRandomPosition()
     this.socre = 0
+    this.score2 = 0
 	} 
 
   drawGrid() {  
@@ -23,11 +26,18 @@ class Game {
     this.player.imageUp = loadImage('../assets/character-up.png') 
     this.player.image = this.player.imageDown
 
+    this.player2.imageDown = loadImage('../assets/character-down.png')
+    this.player2.imageLeft = loadImage('../assets/character-left.png')
+    this.player2.imageRight = loadImage('../assets/character-right.png')
+    this.player2.imageUp = loadImage('../assets/character-up.png') 
+    this.player2.image = this.player.imageDown
+
     this.treasure.image = loadImage('../assets/treasure.png') 
 	}
 
   draw() {    
     this.player.draw()  
+    this.player2.draw() 
   }
   drawTreasure() {    
     this.treasure.draw()
@@ -39,7 +49,12 @@ positionChange() {
      this.treasure.setRandomPosition() 
      this.socre ++    
      console.log(this.socre)
-    }      
+    }   
+    if (this.player2.col === this.treasure.col && this.player2.row === this.treasure.row){
+      this.treasure.setRandomPosition() 
+      this.socre2 ++    
+      console.log(this.socre2)
+     }    
   }   
 
 }
@@ -62,7 +77,7 @@ class Player {
 	moveRight() {
     if( this.col < WIDTH -SQUARE_SIDE ){
 		  this.col += SQUARE_SIDE
-       this.image = this.imageRight
+      this.image = this.imageRight
     }
 	}
 	moveLeft() {
