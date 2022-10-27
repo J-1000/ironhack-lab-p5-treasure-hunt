@@ -1,7 +1,14 @@
 class Game {
   drawGrid() {
-    // Iteration 1
-    // Draw the grid
-    // https://p5js.org/reference/#/p5/line
+    const numberOfRows = 10
+    const numberOfColumns = 10
+    const step = SQUARE_SIDE
+    const positions = []
+
+    // https://editor.p5js.org/rustyrobison/sketches/TFzek4T1v
+    for (let i = 0; i <= WIDTH; i += step) {
+      line(i, 0, i, HEIGHT);
+      line(WIDTH, i, 0, i);
+    }
   }
 }
