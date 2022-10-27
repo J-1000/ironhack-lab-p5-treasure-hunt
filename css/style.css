@@ -8,3 +8,7 @@ body {
 h1 {
   font-weight: 100;
 }
+
+canvas {
+  background-color: #3b8f3e;
+}
