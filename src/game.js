@@ -35,31 +35,37 @@ class Player {
 
 
   moveUp() {
-    clear()
-    this.row -= 1;
-    this.image = loadImage("./assets/character-up.png");
-    draw()
+    if (this.row > 0) {
+      clear()
+      this.row -= 1;
+      this.image = loadImage("./assets/character-up.png");
+      draw()
+    }
   }
-
   moveDown() {
-    clear()
-    this.row += 1;
-    this.image = loadImage("./assets/character-down.png");
-    draw()
+    if (this.row < 9) {
+      clear()
+      this.row += 1;
+      this.image = loadImage("./assets/character-down.png");
+      draw()
+    }
   }
-
   moveLeft() {
-    clear()
-    this.col -= 1;
-    this.image = loadImage("./assets/character-left.png");
-    draw()
+    if (this.col > 0) {
+      clear()
+      this.col -= 1;
+      this.image = loadImage("./assets/character-left.png");
+      draw()
+    }
   }
 
   moveRight() {
-    clear()
-    this.col += 1
-    this.image = loadImage("./assets/character-right.png");
-    draw()
+    if (this.col < 9) {
+      clear()
+      this.col += 1
+      this.image = loadImage("./assets/character-right.png");
+      draw()
+    }
   }
 
   draw() {

@@ -17,6 +17,8 @@ function draw() {
   treasure.drawTreasure();
 
 }
+
+
 function keyPressed() {
 
   if (keyCode === 37) {
