@@ -1,4 +1,3 @@
-
 /* ------------------------------------- */
 /* ------------ Class Game ------------- */
 /* ------------------------------------- */
@@ -41,23 +40,31 @@ class Player {
   }
 
   moveUp() {
-    this.col -= SQUARE_SIDE;
-    this.image = this.imageUp;
+    if (this.col > 0) {
+      this.col  -= SQUARE_SIDE;
+      this.image = this.imageUp;
+    }
   }
 
   moveDown() {
-    this.col += SQUARE_SIDE;
-    this.image = this.imageDown;
+    if (this.col < HEIGHT - SQUARE_SIDE) {
+      this.col  += SQUARE_SIDE;
+      this.image = this.imageDown;
+    }
   }
 
   moveLeft() {
-    this.row -= SQUARE_SIDE;
-    this.image = this.imageLeft;
+    if (this.row > 0) {
+      this.row  -= SQUARE_SIDE;
+      this.image = this.imageLeft;
+    }
   }
 
   moveRight() {
-    this.row += SQUARE_SIDE;
-    this.image = this.imageRight;
+    if (this.row < WIDTH - SQUARE_SIDE) {
+      this.row  += SQUARE_SIDE;
+      this.image = this.imageRight;
+    }
   }
   
   keyPressed() {
