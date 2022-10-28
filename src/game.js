@@ -38,19 +38,30 @@ class Player {
   
   moveUp(){
     clear();
-    this.row -= SQUARE_SIDE;
+    if(this.row > 0 ){
+      this.row -= SQUARE_SIDE;
+    }
   };
   moveDown(){
     clear();
-    this.row += SQUARE_SIDE;
+    if(this.row < WIDTH-SQUARE_SIDE){
+      this.row += SQUARE_SIDE;
+      console.log(this.row);
+    }
   };
   moveLeft(){
     clear();
-    this.col -= SQUARE_SIDE;
+    if(this.col > 0){
+      this.col -= SQUARE_SIDE;
+    }
+    console.log(this.col);
   };
   moveRight(){
     clear();
-    this.col += SQUARE_SIDE;
+    if(this.col < HEIGHT-SQUARE_SIDE){
+      this.col += SQUARE_SIDE;
+    }
+    console.log(this.col);
   };
 
   draw(){
