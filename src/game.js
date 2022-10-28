@@ -2,6 +2,7 @@ class Game {
   constructor() {
     this.player = new Player();
     this.treasure= new Treasure();
+    this.score=1
   }
 
   preload() {
@@ -18,6 +19,7 @@ class Game {
     this.drawGrid();
     this.player.draw();
     this.treasure.drawTreasure();
+    
   }
   drawGrid() {
   
@@ -30,13 +32,18 @@ class Game {
     if (this.player.row===this.treasure.row && this.player.col===this.treasure.col){
     this.treasure.setRandomPosition();
     this.treasure.drawTreasure()
+    this.scoreBoard();
     }
 }
+    scoreBoard(){
+      document.querySelector('#score').innerText="Score : "+this.score++;
+    }
 }
 class Player {
   constructor() {
     this.col = 0;
     this.row = 0;
+    this.score=0
     this.image;
     this.imgDown;
     this.imgLeft;
@@ -65,6 +72,7 @@ class Player {
   }
   draw() {
     image(this.image, this.col * 100, this.row * 100, 100, 100);
+   
   }
 }
 class Treasure {
@@ -72,6 +80,7 @@ class Treasure {
     this.col;
     this.row;
     this.treasureImg;
+    this.score=0;
   }
   setRandomPosition(){
    this.row=Math.floor(Math.random() * 10);
@@ -84,6 +93,9 @@ class Treasure {
   }
   drawTreasure(){
     image(this.treasureImg, this.col * 100, this.row * 100, 100, 100);
+   
+ 
+    
   }
   
 }

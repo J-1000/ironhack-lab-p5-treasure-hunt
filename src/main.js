@@ -12,6 +12,7 @@ function setup() {
 
 function draw() {
   game.draw();
+  
 
 }
 function keyPressed(){
