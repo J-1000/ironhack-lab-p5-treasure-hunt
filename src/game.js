@@ -1,5 +1,24 @@
 
-class Game {
+class Game { 
+  constructor () {
+    this.player = new Player(0, 0);     
+    this.treasure = new Treasure();
+  }
+  preload() {
+    this.player.image = loadImage("./assets/character-down.png");
+    this.player.imageDown = loadImage("./assets/character-down.png");
+    this.player.imageUp = loadImage("./assets/character-up.png");
+    this.player.imageRight = loadImage("./assets/character-right.png");
+    this.player.imageLeft = loadImage("./assets/character-left.png");
+    this.treasure.image = loadImage("./assets/treasure.png");
+  }
+  draw() {
+    clear();
+    this.drawGrid();
+    this.player.draw();
+    this.treasure.drawTreasure();
+    this.collision();
+  }
   drawGrid() {
     const numberOfRowsAndColumns = GRIDSIZE;
     const xStep = WIDTH/numberOfRowsAndColumns;; 
@@ -9,6 +28,11 @@ class Game {
         for(let y = 0; y <= HEIGHT; y += yStep) { 
           line(y, 0, y, HEIGHT);
         }
+    }
+  }
+  collision() {
+    if (dist(this.player.col, this.player.row, this.treasure.col, this.treasure.row) < SQUARE_SIDE) {
+      this.treasure.setRandomPosition();
     }
   }
 }
@@ -24,43 +48,35 @@ class Player {
   moveUp() {
     if (this.row > 0) {  
       this.row -= SQUARE_SIDE;
-      this.image = loadImage("./assets/character-up.png");
-      this.draw();
-      clear();
+      this.image = this.imageUp;
     }
   }
   moveDown() {
     if (this.row < HEIGHT - SQUARE_SIDE) { 
       this.row += SQUARE_SIDE;
-      this.image = loadImage("./assets/character-down.png");
-      this.draw();
-      clear();
+      this.image = this.imageDown;
     } 
   }
   moveLeft() {
     if (this.col > 0) { 
       this.col -= SQUARE_SIDE;
-      this.image = loadImage("./assets/character-left.png");
-      this.draw();
-      clear();
+      this.image = this.imageLeft;
     } 
   }
   moveRight() {
     if (this.col < WIDTH - SQUARE_SIDE) {      
       this.col += SQUARE_SIDE;
-      this.image = loadImage("./assets/character-right.png");
-      this.draw();
-      clear();
+      this.image = this.imageRight;
     }  
   }  
 }
 
 class Treasure {
   setRandomPosition() {
-    this.col = Number(random().toFixed(1) * WIDTH);
-    this.row = Number(random().toFixed(1) * WIDTH);
+    this.col = Math.min((random().toFixed(1) * HEIGHT), HEIGHT - SQUARE_SIDE);
+    this.row = Math.min((random().toFixed(1) * WIDTH), WIDTH - SQUARE_SIDE);
    }
-   drawTreasure() {
+  drawTreasure() {
     image(this.image, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE);
   }
 }
